@@ -60,4 +60,20 @@ public class City {
     public void setAirports(List<Airport> airports) {
         this.airports = airports;
     }
+    // ToString Method for Displaying City Information
+    @Override
+    public String toString() {
+        StringBuilder airportNames = new StringBuilder();
+        if (airports != null && !airports.isEmpty()) {
+            for (Airport airport : airports) {
+                airportNames.append(airport.getName()).append(", ");
+            }
+        }
+        return "City ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "State: " + state + "\n" +
+                "Population: " + population + "\n" +
+                "Airports: " + (airportNames.length() > 0 ? airportNames.substring(0, airportNames.length() - 2) : "None") + "\n";
+    }
 }
+
