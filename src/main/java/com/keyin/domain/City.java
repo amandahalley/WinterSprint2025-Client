@@ -1,16 +1,19 @@
 package com.keyin.domain;
 
 import java.util.List;
+import java.util.Objects;
 
 public class City {
+
     private Long id;
     private String name;
     private String state;
     private int population;
-    private List<Airport> airports; 
+    private List<Airport> airports;
 
-    // Constructors
-    public City() {}
+    //constructors
+    public City() {
+    }
 
     public City(Long id, String name, String state, int population, List<Airport> airports) {
         this.id = id;
@@ -20,7 +23,7 @@ public class City {
         this.airports = airports;
     }
 
-    // Getters and Setters
+    //getters and Setters
     public Long getId() {
         return id;
     }
@@ -60,7 +63,18 @@ public class City {
     public void setAirports(List<Airport> airports) {
         this.airports = airports;
     }
-    // ToString Method for Displaying City Information
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        City city = (City) o;
+        return Objects.equals(id, city.id) &&
+                Objects.equals(name, city.name) &&
+                Objects.equals(state, city.state);
+    }
+
+    //print format
     @Override
     public String toString() {
         StringBuilder airportNames = new StringBuilder();
@@ -76,4 +90,3 @@ public class City {
                 "Airports: " + (airportNames.length() > 0 ? airportNames.substring(0, airportNames.length() - 2) : "None") + "\n";
     }
 }
-

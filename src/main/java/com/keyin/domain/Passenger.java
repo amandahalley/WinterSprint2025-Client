@@ -9,7 +9,7 @@ public class Passenger {
     private String lastName;
     private String phoneNumber;
 
-    // constructor
+    // default constructor
     public Passenger() {}
 
     // Constructor with fields
@@ -55,10 +55,8 @@ public class Passenger {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true; // if objects are same, return true.
-
-        // if objects are not same, return false
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) return true; // If objects are the same, return true.
+        if (o == null || getClass() != o.getClass()) return false; // If not the same class or null, return false.
         Passenger passenger = (Passenger) o;
         return Objects.equals(id, passenger.id) &&
                 Objects.equals(firstName, passenger.firstName) &&
@@ -70,5 +68,22 @@ public class Passenger {
     public int hashCode() {
         return Objects.hash(id, firstName, lastName, phoneNumber);
     }
+
+    //added print format
+    @Override
+    public String toString() {
+        return "Passenger{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }
+
+
+
+
+
+
 

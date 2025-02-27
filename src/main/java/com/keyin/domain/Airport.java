@@ -1,6 +1,5 @@
 package com.keyin.domain;
 
-
 import java.util.Objects;
 
 public class Airport {
@@ -9,19 +8,23 @@ public class Airport {
     private String name;
     private String code;
 
+    //default constructor
     public Airport() {
     }
 
+    //constructor for code
     public Airport(String code) {
         this.code = code;
     }
 
+    //constructor initializing all fields of airport
     public Airport(long id, String name, String code) {
         this.id = id;
         this.name = name;
         this.code = code;
     }
 
+    //getters and setters
     public long getId() {
         return id;
     }
@@ -46,16 +49,25 @@ public class Airport {
         this.code = code;
     }
 
+    //equals method checking all fields (id, name, and code)
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Airport airport = (Airport) o;
-        return Objects.equals(code, airport.code);
+        return id == airport.id &&
+                Objects.equals(name, airport.name) &&
+                Objects.equals(code, airport.code);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code);
+        return Objects.hash(id, name, code);
+    }
+
+    @Override
+    public String toString() {
+        return "Airport: " + name + " (" + code + ")";
     }
 }
+

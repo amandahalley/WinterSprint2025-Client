@@ -65,11 +65,22 @@ public class Aircraft {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Aircraft aircraft = (Aircraft) o;
-        return Objects.equals(type, aircraft.type);
+        return id == aircraft.id &&
+                numberOfPassengers == aircraft.numberOfPassengers &&
+                Objects.equals(type, aircraft.type) &&
+                Objects.equals(airlineName, aircraft.airlineName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type);
+        return Objects.hash(id, type, airlineName, numberOfPassengers);
+    }
+
+
+    //print format
+    @Override
+    public String toString() {
+        return "Aircraft: " + type + " operated by " + airlineName +
+                " (Passengers: " + numberOfPassengers + ")";
     }
 }
