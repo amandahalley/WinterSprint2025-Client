@@ -81,24 +81,23 @@ public class RESTClient {
         });
     }
 
-    //LOGIC TO BE ADDED FOR THESE
-//    //aircrafts a passenger has travelled on
-//    public List<Aircraft> getAircraftByPassenger(long passengerId) {
-//        String response = sendGetRequest("/passenger/" + passengerId + "/aircraft");
-//        return buildListFromResponse(response, new TypeReference<List<Aircraft>>() {});
-//    }
-//
-//    //airports aircraft has taken off from
-//    public List<Airport> getAirportsByAircraft(long aircraftId) {
-//        String response = sendGetRequest("/aircraft/" + aircraftId + "/airports");
-//        return buildListFromResponse(response, new TypeReference<List<Airport>>() {});
-//    }
-//
-//    //airports used by passenger(id)
-//    public List<Airport> getAirportsByPassenger(long passengerId) {
-//        String response = sendGetRequest("/passenger/" + passengerId + "/airports");
-//        return buildListFromResponse(response, new TypeReference<List<Airport>>() {});
-//    }
+    //aircrafts a passenger has travelled on
+    public List<Aircraft> getAircraftByPassenger(long passengerId) {
+        String response = sendGetRequest("/passenger/" + passengerId + "/aircraft");
+        return buildListFromResponse(response, new TypeReference<List<Aircraft>>() {});
+    }
+
+    //airports aircraft has taken off from
+    public List<Airport> getAirportsByAircraft(long aircraftId) {
+        String response = sendGetRequest("/aircraft/" + aircraftId + "/airports");
+        return buildListFromResponse(response, new TypeReference<List<Airport>>() {});
+    }
+
+    //airports used by passenger(id)
+    public List<Airport> getAirportsByPassenger(long passengerId) {
+        String response = sendGetRequest("/passenger/" + passengerId + "/airports");
+        return buildListFromResponse(response, new TypeReference<List<Airport>>() {});
+    }
 
 
     private <T> List<T> buildListFromResponse(String response, TypeReference<List<T>> typeReference) {
