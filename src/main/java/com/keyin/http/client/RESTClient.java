@@ -48,54 +48,54 @@ public class RESTClient {
 
     //get all cities
     public List<City> getAllCities() {
-        String response = sendGetRequest("/cities");
+        String response = sendGetRequest("/api/cities");
         return buildListFromResponse(response, new TypeReference<List<City>>() {
         });
     }
 
     //get all airports
     public List<Airport> getAllAirports() {
-        String response = sendGetRequest("/airports");
+        String response = sendGetRequest("/api/airports");
         return buildListFromResponse(response, new TypeReference<List<Airport>>() {
         });
     }
 
     //get all aircraft
     public List<Aircraft> getAllAircraft() {
-        String response = sendGetRequest("/aircraft");
+        String response = sendGetRequest("/api/aircraft");
         return buildListFromResponse(response, new TypeReference<List<Aircraft>>() {
         });
     }
 
     //get all passengers
     public List<Passenger> getAllPassengers() {
-        String response = sendGetRequest("/passengers");
+        String response = sendGetRequest("/api/passengers");
         return buildListFromResponse(response, new TypeReference<List<Passenger>>() {
         });
     }
 
     //airports in a city
     public List<Airport> getAirportsByCity(String cityName) {
-        String response = sendGetRequest("/city/airports?name=" + cityName);
+        String response = sendGetRequest("/api/city/airports?name=" + cityName);
         return buildListFromResponse(response, new TypeReference<List<Airport>>() {
         });
     }
 
     //aircrafts a passenger has travelled on
     public List<Aircraft> getAircraftByPassenger(long passengerId) {
-        String response = sendGetRequest("/passenger/" + passengerId + "/aircraft");
+        String response = sendGetRequest("/api/passenger/" + passengerId + "/api/aircraft");
         return buildListFromResponse(response, new TypeReference<List<Aircraft>>() {});
     }
 
     //airports aircraft has taken off from
     public List<Airport> getAirportsByAircraft(long aircraftId) {
-        String response = sendGetRequest("/aircraft/" + aircraftId + "/airports");
+        String response = sendGetRequest("/api/aircraft/" + aircraftId + "/api/airports");
         return buildListFromResponse(response, new TypeReference<List<Airport>>() {});
     }
 
     //airports used by passenger(id)
     public List<Airport> getAirportsByPassenger(long passengerId) {
-        String response = sendGetRequest("/passenger/" + passengerId + "/airports");
+        String response = sendGetRequest("/api/passenger/" + passengerId + "/api/airports");
         return buildListFromResponse(response, new TypeReference<List<Airport>>() {});
     }
 
